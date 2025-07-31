@@ -6,17 +6,17 @@ services:
     container_name: dart-ai-sc
     ports:
       - "7000:7000"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia        # 반드시 nvidia 지정
-              count: all            # or 1,2… 필요 개수
-              capabilities: [gpu]   # compute·utility 등 추가 가능
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia        # 반드시 nvidia 지정
+    #           count: all            # or 1,2… 필요 개수
+    #           capabilities: [gpu]   # compute·utility 등 추가 가능
 
-    environment:
-      - NVIDIA_VISIBLE_DEVICES=all         # 선택: 특정 GPU만 열려면 device_ids 사용
-      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    # environment:
+    #   - NVIDIA_VISIBLE_DEVICES=all         # 선택: 특정 GPU만 열려면 device_ids 사용
+    #   - NVIDIA_DRIVER_CAPABILITIES=compute,utility
 
     stdin_open: true
     tty: true
